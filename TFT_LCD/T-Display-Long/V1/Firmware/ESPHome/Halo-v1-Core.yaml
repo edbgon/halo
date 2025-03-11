@@ -189,7 +189,13 @@ touchscreen:
             touch.x_raw,
             touch.y_raw
             );
-
+    on_update:
+      - lambda: |-
+            for (auto touch: touches)  {      
+                if (touch.state <= 2) {
+                 id(light_backlight).set_brightness(touch.y / 640);
+              }
+            }
 web_server:
   port: 80
 
@@ -925,6 +931,7 @@ light:
           width: 50
   - platform: monochromatic
     output: backlight
+    id: light_backlight
     name: "Display Backlight"
     restore_mode: ALWAYS_ON
 
