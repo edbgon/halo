@@ -191,9 +191,9 @@ touchscreen:
             );
     on_update:
       - lambda: |-
-            for (auto touch: touches)  {      
+            for (auto touch: touches)  {
                 if (touch.state <= 2) {
-                 id(light_backlight).set_brightness(touch.y / 640);
+                 id(light_backlight).turn_on().set_brightness(touch.y / 640).perform();
               }
             }
 web_server:
