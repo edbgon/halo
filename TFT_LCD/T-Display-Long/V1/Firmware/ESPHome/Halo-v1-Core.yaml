@@ -193,8 +193,7 @@ touchscreen:
       - lambda: |-
             for (auto touch: touches)  {
                 if (touch.state <= 2) {
-                 id(light_backlight).turn_on().set_brightness((640 - touch.y) / 640).perform();
-                 ESP_LOGI("test", "x=%0.2f", (640.0 - touch.y) / 640.0);
+                 id(light_backlight).turn_on().set_brightness((640.0 - touch.y) / 640.0).perform();
               }
             }
 web_server:
