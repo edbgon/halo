@@ -16,19 +16,18 @@ esp32:
     type: esp-idf
     advanced:
       enable_idf_experimental_features: true
-    #platform_version: 6.9.0
-    #version: 5.3.1
+    platform_version: 6.9.0
+    version: 5.3.1
+
+esp32_improv:
+  authorizer: none
 
 esp32_improv:
   authorizer: none
 
 external_components:
   - source: github://yashmulgaonkar/esphome-components
-    components: [sy6970]
-    
-  - source: github://esphome/esphome@dev
-    components: [i2c, axs15231]
-    refresh: 1h    
+    components: [axs15231, sy6970]
 
   - source: github://pr#7770 # RMT driver, remove rmt_channel when using esp-idf
     components: [ remote_base, remote_receiver, remote_transmitter, esp32_rmt, esp32_rmt_led_strip ]
